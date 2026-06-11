@@ -14,9 +14,14 @@ disable-model-invocation: true
 
 ## Contesto git (best-effort, pre-iniettato)
 
-!`git rev-parse --is-inside-work-tree 2>nul || git rev-parse --is-inside-work-tree 2>/dev/null || echo "non-git-dir"`
-!`git rev-parse --abbrev-ref HEAD 2>nul || git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "(no branch)"`
-!`git log -1 --format="%h %ad %s" --date=short 2>nul || git log -1 --format="%h %ad %s" --date=short 2>/dev/null || echo "(no commits)"`
+!`git status --short`
+!`git branch --show-current`
+!`git log -1 --format="%h %ad %s" --date=short`
+
+Se la cartella non è ancora un repository git, questi comandi stampano un errore "not a git
+repository": va letto come modalità greenfield senza repo, in cui i Passi 0.5 eseguiranno
+`git init`. I comandi sono singoli e portabili (niente `||`, `echo` o redirezioni specifiche di
+shell) per passare il controllo permessi su Windows e Unix.
 
 ## Premessa
 

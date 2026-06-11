@@ -5,6 +5,22 @@
 > e commit di riferimento. Qui confluisce anche il log di riconciliazione dei documenti sorgente,
 > con nome del documento e esito, così la data di allineamento sopravvive a un clone.
 
+## 2026-06-11 — Portabilità su Windows delle skill del motore
+
+Commit: (incluso nel commit di manutenzione delle skill)
+File toccati: `.claude/skills/{sync-context,repo-status,git-sync,init-project-system}/SKILL.md`,
+`.claude/settings.json`.
+Motivo: i comandi pre-iniettati (`` !`...` ``) delle skill usavano un ciclo `for` (bloccato dal
+controllo permessi di Claude Code) e sintassi solo-bash (`cat | head`, `sed`, `||`, `2>nul`) non
+portabile su Windows/PowerShell, per cui `/sync-context` falliva. Riscritti tutti come singoli
+comandi git coperti dall'allowlist; la lettura di `index.md` e del frontmatter è spostata sullo
+strumento Read. Aggiunto `Bash(git tag:*)` all'allowlist per `repo-status`. La stessa patch va
+applicata al bundle di riferimento in J: per non far divergere lo standard (modifica manuale
+dell'utente, non eseguita da qui).
+
+Nota di riconciliazione: questo intervento tocca solo le skill e i permessi, non le `covers-paths`
+delle schede, quindi nessuna scheda diventa stale e il `last-verified-commit` (8a04bc2) resta valido.
+
 ## 2026-06-11 — Primo ancoraggio delle schede (sync-context)
 
 Commit: 8a04bc2
