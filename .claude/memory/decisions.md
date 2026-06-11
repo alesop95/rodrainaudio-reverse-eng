@@ -84,3 +84,21 @@ SPL; rapporto prezzo/prestazioni di riferimento.
 Conseguenze: nota condizionale: se la misura rivelasse Z_out basso (<= 10 ohm) e si cercasse la
 massima neutralità ai bassi, l'alternativa equivalente è la Sennheiser HD 600 (300 ohm). Da
 evitare le planari a bassa impedenza (es. Hifiman Sundara circa 37 ohm) salvo Z_out basso.
+
+## ADR-007 — Ambiente LaTeX: TinyTeX user-local guidato da manifesto
+
+Data: 2026-06-11
+Stato: accettata
+Contesto: il progetto richiede un ambiente di build LaTeX riproducibile ed esportabile ad altri
+progetti; sulla macchina non era installata alcuna distribuzione TeX. Il `.tex` e' a engine
+pdflatex (preambolo: article, inputenc/fontenc, babel-italian, siunitx, circuitikz, listings).
+Decisione: adottare TinyTeX installata user-local e condivisa fra i progetti (non versionata), con
+un manifesto versionato `tex-packages.txt` da cui `tlmgr` installa i pacchetti, engine pdflatex
+fissato in `.latexmkrc`, e script paralleli PowerShell/POSIX in `scripts/` per setup e build,
+incapsulati nella skill `latex-build`.
+Motivazione: TinyTeX e' leggera, scriptabile e cross-OS; il modello manifesto + ambiente-esterno
+segue la sezione 13 di `PROJECT-SYSTEM.md` (versionare la fonte riproducibile, ignorare il
+derivato); l'installazione user-local evita di duplicare centinaia di MB per progetto.
+Conseguenze: l'ambiente si promuove a standard riusabile sotto `.claude/templates/latex/` e nel
+bundle di riferimento in J:. Alternative scartate: MiKTeX (install-on-the-fly non guidato da
+manifesto, meno riproducibile) e TeX Live completa (diversi GB, sovradimensionata).

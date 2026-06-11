@@ -6,6 +6,9 @@ covers-paths:
   - rodrain_es9023_trattazione.tex
   - pictures/**
   - references/**
+  - scripts/**
+  - tex-packages.txt
+  - .latexmkrc
 last-verified-commit: 8a04bc2b2c00b21e10a210564581175e7a07f27d
 ---
 
@@ -22,9 +25,14 @@ Il deliverable è una trattazione tecnica in LaTeX, `rodrain_es9023_trattazione.
 righe), autore Alessio Sopranzi, dal titolo "Analisi ingegneristica aggiornata di un DAC Rod Rain".
 Il documento usa pacchetti tipici di ingegneria (unità SI via `siunitx`, figure con `float`/`H`,
 riferimenti incrociati con `label`/`ref`) e include immagini da una cartella `pictures/`. La
-compilazione e il lavoro collaborativo avvengono anche su Overleaf (vedi `Progetto su
+compilazione e il lavoro collaborativo avvengono anche su Overleaf (vedi `references/Progetto su
 overleaf.url`). Il PDF e gli ausiliari LaTeX sono artefatti derivati e restano ignorati da git
 (vedi `.gitignore`); il `.tex` è la sorgente versionata.
+
+L'ambiente di build locale segue la sezione 13: engine TinyTeX user-local (non versionato),
+manifesto riproducibile `tex-packages.txt`, engine pdflatex fissato in `.latexmkrc`, e script
+paralleli in `scripts/` (`setup-tex.{ps1,sh}` per il bootstrap dal manifesto, `build.{ps1,sh}` per
+la compilazione). Il dettaglio sta in `dev-testing.md` e nella skill `latex-build`.
 
 ## Dispositivo sotto analisi
 

@@ -29,6 +29,15 @@ templates/mcp.json             ->  <radice>/.mcp.json                    (tracci
                                     <radice>/mcp/<server>.js              (implementazione del server, tracciata, opzionale)
 ```
 
+Pacchetto opzionale per progetti LaTeX, da istanziare solo se il progetto produce un documento
+LaTeX. Manifesto, script di setup/build, `.latexmkrc` e skill `latex-build`; la distribuzione TeX
+(TinyTeX) resta esterna e non versionata. La mappa di istanziazione di dettaglio e le note stanno
+in `templates/latex/README.md`.
+
+```
+templates/latex/               ->  scripts/, tex-packages.txt, .latexmkrc, .claude/skills/latex-build/
+```
+
 ## Ancoraggio al primo commit
 
 In un progetto greenfield non esiste ancora un commit quando l'anatomia viene creata, perché il

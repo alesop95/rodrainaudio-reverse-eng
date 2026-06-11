@@ -5,6 +5,37 @@
 > e commit di riferimento. Qui confluisce anche il log di riconciliazione dei documenti sorgente,
 > con nome del documento e esito, così la data di allineamento sopravvive a un clone.
 
+## 2026-06-11 — Verifica dal vivo dell'ambiente LaTeX e correzioni script
+
+Commit: (incluso nel commit dell'ambiente LaTeX)
+File toccati: `scripts/setup-tex.ps1`, `scripts/build.ps1`, `scripts/build.sh`,
+`scripts/setup-tex.sh` (e relative copie in `.claude/templates/latex/` e nel bundle J:).
+Motivo: eseguito `setup-tex.ps1` per verificare l'ambiente end-to-end. Tre bug emersi e corretti:
+(1) il batch ufficiale TinyTeX invoca `curl` con apici singoli e fallisce su cmd: sostituito con
+download dell'installer PowerShell via Invoke-WebRequest + TLS 1.2; (2) l'installer crea
+`<TINYTEX_DIR>\TinyTeX`, quindi va passata la cartella padre (corretto sia PS sia, per il caso
+unix analogo, in `setup-tex.sh`); (3) `build.*` passava a `latexmk` un separatore `--` non valido
+("unknown option") e non controllava l'exit code: rimosso `--` e aggiunto il controllo. Esito:
+TinyTeX installato in `%APPDATA%\TinyTeX`, 7 pacchetti installati dal manifesto, e il trattato
+compila pulito con `build.ps1` -> `rodrain_es9023_trattazione.pdf` (20 pagine), riferimenti
+incrociati risolti, artefatti ignorati da git. Nota: babel avvisa che i pattern di sillabazione
+italiana non sono precaricati nel format (cosmetico, non blocca la build).
+
+## 2026-06-11 — Ambiente LaTeX (TinyTeX) e skill latex-build
+
+Commit: (incluso nel commit dell'ambiente LaTeX)
+File toccati: `tex-packages.txt` (manifesto), `.latexmkrc`, `scripts/setup-tex.{ps1,sh}`,
+`scripts/build.{ps1,sh}`, `.claude/skills/latex-build/SKILL.md`; aggiornate le schede
+`context/dev-testing.md`, `deployment.md`, `STACK.md` e `decisions.md` (ADR-007).
+Motivo: dare al progetto un ambiente LaTeX locale riproducibile ed esportabile (sezione 13):
+TinyTeX user-local non versionata, pacchetti guidati dal manifesto, engine pdflatex fissato in
+`.latexmkrc`, script paralleli PS/POSIX che invocano i binari per percorso. Installazione non
+eseguita ora per scelta: la lancia l'utente con `scripts/setup-tex.*` (rete, qualche minuto).
+Riconciliazione: questo passo cambia le `covers-paths` di STACK/dev-testing/deployment, quindi dopo
+il commit dell'ambiente va eseguito `sync-context` (ora funzionante) per ribumpare i
+`last-verified-commit` a HEAD. Prossimo: promuovere lo stesso layout nello standard
+(`.claude/templates/latex/`) e nel bundle J:.
+
 ## 2026-06-11 — Portabilità su Windows delle skill del motore
 
 Commit: (incluso nel commit di manutenzione delle skill)

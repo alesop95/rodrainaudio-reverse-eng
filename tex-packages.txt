@@ -1,0 +1,29 @@
+# Manifesto dei pacchetti LaTeX del progetto (sezione 13 di PROJECT-SYSTEM.md).
+# Versionato e riproducibile: questo file e' la fonte, la distribuzione TeX
+# (l'ambiente materializzato) e' invece esterna al repository e non versionata.
+#
+# Lo script scripts/setup-tex.{ps1,sh} installa questi pacchetti con `tlmgr install`.
+# tlmgr risolve da solo le dipendenze, quindi qui stanno solo i pacchetti di primo
+# livello richiesti dal preambolo del .tex. Una voce per riga; righe vuote e che
+# iniziano con # vengono ignorate.
+
+# Strumento di build (compilazione riproducibile, gestione multi-passata)
+latexmk
+
+# Stack del documento (preambolo: \documentclass article, pdflatex)
+babel-italian
+amsmath
+amsfonts
+siunitx
+geometry
+booktabs
+hyperref
+listings
+float
+xcolor
+pgf
+circuitikz
+
+# Font T1 (richiesti da \usepackage[T1]{fontenc})
+lm
+cm-super
