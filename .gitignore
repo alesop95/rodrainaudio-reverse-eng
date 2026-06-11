@@ -1,0 +1,36 @@
+# --- Sistema di progetto portabile: livello privato e ignorato (sezione 6/10) ---
+# Inserito PRIMA di creare _notes/, cosi la cartella non finisce indicizzata.
+
+# Livello privato e verboso (solo in radice: gli scheletri in .claude/templates/ sono tracciati)
+/_notes/
+
+# Override personali e permessi personali (CLAUDE.local.md solo in radice)
+/CLAUDE.local.md
+.claude/settings.local.json
+
+# Estratti temporanei dei .docx (cartelle scratch)
+_notes/.tmp-docx-*/
+.tmp-docx-*/
+
+# Documenti Word grezzi (binari). Eventuali eccezioni curate si dichiarano sotto.
+*.docx
+
+# --- Artefatti di build LaTeX ---
+# Il sorgente .tex e tracciato; il PDF e gli ausiliari sono derivati e si ignorano.
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.pdf
