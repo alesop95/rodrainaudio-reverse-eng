@@ -4,10 +4,8 @@ generated-from-branch: main
 generated-date: 2026-06-11
 covers-paths:
   - rodrain_es9023_trattazione.tex
-  - "*.png"
-  - "*.jpg"
-  - "*.txt"
-  - "*.url"
+  - pictures/**
+  - references/**
 last-verified-commit: PENDING-FIRST-COMMIT
 ---
 
@@ -40,19 +38,27 @@ sono in `decisions.md`.
 
 ## Mappa dei file e ruolo
 
+Gli asset sono organizzati in cartelle. Le immagini stanno in `pictures/`, dove i due file
+referenziati dal `.tex` (`\includegraphics{pictures/...}`) ora risolvono correttamente; le altre
+sono foto di supporto non ancora incluse. I segnalibri e i puntatori a fonti esterne stanno in
+`references/`.
+
 ```
-rodrain_es9023_trattazione.tex   sorgente LaTeX del trattato (deliverable), tracciato
-Notes.txt                        appunti iniziali e sintesi delle risposte a/b/c
-DAC schematic.txt                puntatore URL allo schematico ES9023
-audio science.txt                puntatore URL a misure indipendenti (AudioScienceReview)
-ES9023_SCHEMATIC_DAC_AUDIO.png   schematico di riferimento sezione analogica (variante I²S)
-scheda-dac.png                   foto del modulo DAC ES9023 (USB)
-rear.png                         foto del pannello posteriore (connettori)
-toroid.png                       foto del trasformatore toroidale
-photo_2025-12-01_10-15-55.jpg    foto del dispositivo
-Beyerdynamic A1.url              segnalibro al thread di riferimento sull'A1
-Progetto su overleaf.url         segnalibro al progetto Overleaf del documento
+rodrain_es9023_trattazione.tex          sorgente LaTeX del trattato (deliverable), in radice
+pictures/scheda-dac.png                 foto del modulo DAC ES9023 (USB) — usata nel .tex
+pictures/ES9023_SCHEMATIC_DAC_AUDIO.png  schematico sezione analogica (variante I²S) — usata nel .tex
+pictures/rear.png                       foto del pannello posteriore (connettori) — di supporto
+pictures/toroid.png                     foto del trasformatore toroidale — di supporto
+pictures/photo_2025-12-01_10-15-55.jpg   foto del dispositivo — di supporto
+references/Beyerdynamic A1.url          segnalibro al thread di riferimento sull'A1
+references/Progetto su overleaf.url     segnalibro al progetto Overleaf del documento
+references/DAC schematic.txt            puntatore URL allo schematico ES9023
+references/audio science.txt            puntatore URL a misure indipendenti (AudioScienceReview)
 ```
+
+Gli appunti iniziali e la sintesi delle risposte (ex `Notes.txt`) sono stati spostati nel livello
+privato `_notes/`, ignorato da git: il loro contenuto tecnico è già distillato nelle schede
+tracciate (`decisions.md`, `current-work.md`).
 
 ## Struttura del trattato (sezioni principali)
 

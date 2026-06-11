@@ -5,6 +5,17 @@
 > e commit di riferimento. Qui confluisce anche il log di riconciliazione dei documenti sorgente,
 > con nome del documento e esito, così la data di allineamento sopravvive a un clone.
 
+## 2026-06-11 — Riorganizzazione degli asset in cartelle
+
+Commit: PENDING-FIRST-COMMIT (da ancorare con `sync-context` dopo il commit di questa riorg)
+File toccati: spostate le immagini in `pictures/`, i segnalibri e i puntatori-URL in `references/`,
+e `Notes.txt` in `_notes/` (livello privato ignorato). Aggiornata `context/STACK.md` (mappa file e
+`covers-paths` -> `pictures/**`, `references/**`).
+Motivo: la root era dispersiva; inoltre il `.tex` referenzia le immagini come `pictures/...`, quindi
+spostarle in `pictures/` ripara gli `\includegraphics` (prima rotti in locale). `Notes.txt` esce dal
+repository al prossimo commit perché `_notes/` è ignorato; il suo contenuto tecnico è già in
+`decisions.md` e `current-work.md`.
+
 ## 2026-06-11 — Adozione del sistema di progetto su progetto preesistente
 
 Commit: PENDING-FIRST-COMMIT

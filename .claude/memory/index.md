@@ -25,8 +25,8 @@ Data snapshot:         2026-06-11
 
 ## Punto di ripresa
 
-Sistema appena adottato su un progetto preesistente non ancora versionato. Repo `git init` con
-identità personale e remote già impostati; manca il primo commit, che è manuale dell'utente. Dopo
-il primo commit, eseguire `sync-context` per ancorare tutte le schede a `HEAD`. L'indagine tecnica
-resta aperta sui tre punti in `current-work.md`; la verifica più importante è la misura di Z_out
-(vedi `decisions.md` ADR-005).
+Asset riorganizzati in `pictures/` e `references/`; `Notes.txt` spostato nel privato `_notes/`. Le
+immagini usate dal `.tex` ora risolvono. Da fare: committare la riorganizzazione, poi eseguire
+`sync-context` per ancorare tutte le schede a `HEAD` (oggi ancora `PENDING-FIRST-COMMIT`).
+L'indagine tecnica resta aperta sui tre punti in `current-work.md`; la verifica più importante è la
+misura di Z_out (vedi `decisions.md` ADR-005).
