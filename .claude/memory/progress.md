@@ -5,6 +5,30 @@
 > e commit di riferimento. Qui confluisce anche il log di riconciliazione dei documenti sorgente,
 > con nome del documento e esito, così la data di allineamento sopravvive a un clone.
 
+## 2026-06-11 — Sillabazione italiana standardizzata nell'ambiente LaTeX
+
+Commit: (incluso nel commit dell'ambiente LaTeX)
+File toccati: `tex-packages.txt`, `.claude/templates/latex/tex-packages.txt`,
+`scripts/setup-tex.ps1` (e copie nel template e nel bundle J:).
+Motivo: il format pdflatex di TinyTeX-1 non aveva i pattern di sillabazione italiana (warning babel
+"No hyphenation patterns were preloaded"). Verificato dal vivo che `tlmgr install hyphen-italian`
+rigenera `language.dat/.def/.lua` e tutti i format come postaction, e il warning sparisce. Fix
+standardizzato: aggiunto `hyphen-italian` al manifesto di progetto e, nel manifesto template,
+l'esempio piu' una nota generale (ogni `babel-<lingua>` vuole il proprio `hyphen-<lingua>`).
+Corretto inoltre un disallineamento dei parser: `setup-tex.ps1` ora rimuove i commenti inline `# ...`
+come gia' faceva lo script `.sh`, cosi' il manifesto e' annotabile su entrambe le piattaforme.
+Tutto rispecchiato in `.claude/templates/latex/` e in J: (parita' verificata via hash).
+
+Commit: (incluso nel commit dell'ambiente LaTeX)
+File toccati: `.claude/skills/init-project-system/SKILL.md` (e copia identica nel bundle J:).
+Motivo: il pacchetto `templates/latex/` era istanziabile solo a mano dal suo README; mancava la
+domanda automatica allo startup, analoga a quella sull'MCP. Aggiunto al Passo 4 del runbook un gate
+esplicito e generico: per ogni pacchetto opzionale di framework presente in `.claude/templates/`
+(sottocartella con proprio `README.md`, oggi `templates/latex/`) la skill chiede se attivarlo
+(offrendo istanziazione ora o promemoria, senza assumere), con la domanda LaTeX particolarmente
+pertinente in presenza di file `.tex`. Aggiunta anche una nota nella sezione "Template canonici".
+Formulazione generica cosi' che futuri pacchetti di framework ereditino lo stesso gate.
+
 ## 2026-06-11 — Verifica dal vivo dell'ambiente LaTeX e correzioni script
 
 Commit: (incluso nel commit dell'ambiente LaTeX)

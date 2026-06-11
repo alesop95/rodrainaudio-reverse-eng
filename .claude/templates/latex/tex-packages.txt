@@ -25,6 +25,12 @@ cm-super
 
 # Esempi opzionali da abilitare secondo il preambolo:
 #   babel-italian      # \usepackage[italian]{babel}
+#   hyphen-italian     # sillabazione italiana in pdflatex (vedi nota sotto)
 #   siunitx            # \usepackage{siunitx}
 #   pgf                # tikz
 #   circuitikz         # schemi circuitali
+#
+# Sillabazione: in pdflatex i pattern di una lingua babel stanno nel pacchetto
+# hyphen-<lingua> (es. hyphen-italian, hyphen-french). Per ogni babel-<lingua> usata
+# aggiungere il corrispondente hyphen-<lingua>: tlmgr, installandolo, rigenera language.dat
+# e i format, eliminando il warning "No hyphenation patterns were preloaded".

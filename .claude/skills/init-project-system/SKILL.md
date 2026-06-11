@@ -138,6 +138,11 @@ personali, e, solo se il progetto integra un servizio esterno tramite un server 
 istanziato dal template opzionale e la cartella `mcp/` con l'implementazione del server, entrambi
 tracciati e in radice, mai sotto `.claude`. Senza integrazione MCP questi ultimi non si creano.
 
+I `templates/` possono inoltre contenere pacchetti opzionali di framework, riconoscibili come
+sottocartelle con un proprio `README.md` di istanziazione (attualmente `templates/latex/` per
+l'ambiente di build LaTeX). Non si attivano d'ufficio: si offrono con una domanda esplicita allo
+startup, esattamente come l'MCP (vedi Passo 4).
+
 ## Passi 1-8 — Runbook di inizializzazione
 
 Leggere la sezione "Comando di inizializzazione" di `.claude/PROJECT-SYSTEM.md` ed eseguirne i
@@ -164,6 +169,16 @@ il dettaglio autoritativo resta nel file.
    rimandarlo come promemoria; non assumere mai. In caso affermativo istanziare in radice
    `.mcp.json` e la cartella `mcp/`, mai sotto `.claude`, e se un `.mcp.json` esiste gia mostrare
    la differenza invece di sovrascrivere.
+   Con la stessa logica del gate MCP, per ciascun pacchetto opzionale di framework presente in
+   `.claude/templates/` (sottocartella con un proprio `README.md`, attualmente `templates/latex/`)
+   chiedere esplicitamente se attivarlo, offrendo di istanziarlo ora o di rimandarlo come
+   promemoria; non assumere mai. Per LaTeX la domanda e' particolarmente pertinente se il progetto
+   contiene file `.tex`. In caso affermativo istanziare il pacchetto secondo il suo `README.md`
+   (per `latex/`: `scripts/`, `tex-packages.txt` e `.latexmkrc` in radice, e la skill `latex-build`
+   sotto `.claude/skills/`), abilitare nel `.gitignore` il blocco di artefatti del framework (per
+   LaTeX il blocco LaTeX dello snippet) e adattare il manifesto al preambolo reale; se un file di
+   destinazione esiste gia, mostrare la differenza invece di sovrascrivere. In caso negativo,
+   lasciare un promemoria esplicito che il pacchetto resta istanziabile in seguito dal template.
 5. Creazione di `_notes` con `DIARIO.md`, `RESOCONTO.md`, `TEST-CHECKLIST.md`, solo dopo aver
    confermato che `_notes` e ignorato.
 6. Installazione delle skill del motore di riconciliazione e del flusso git, ciascuna come

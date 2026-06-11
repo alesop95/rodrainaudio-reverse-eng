@@ -12,6 +12,8 @@ latexmk
 
 # Stack del documento (preambolo: \documentclass article, pdflatex)
 babel-italian
+# hyphen-italian: pattern di sillabazione italiana per pdflatex; installandolo, tlmgr rigenera il format
+hyphen-italian
 amsmath
 amsfonts
 siunitx

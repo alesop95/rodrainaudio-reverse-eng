@@ -90,9 +90,10 @@ Write-Host "[setup-tex] Aggiorno tlmgr ..."
 
 if (-not $SkipPackages) {
     if (-not (Test-Path $Manifest)) { throw "[setup-tex] Manifesto non trovato: $Manifest" }
+    # Una voce per riga; si rimuovono i commenti inline (# ...) e gli spazi, come nello script .sh.
     $pkgs = Get-Content $Manifest |
-        ForEach-Object { $_.Trim() } |
-        Where-Object { $_ -and -not $_.StartsWith('#') }
+        ForEach-Object { ($_ -replace '#.*$', '').Trim() } |
+        Where-Object { $_ }
     if ($pkgs.Count -gt 0) {
         Write-Host "[setup-tex] Installo $($pkgs.Count) pacchetti dal manifesto ..."
         & $tlmgr install @pkgs
