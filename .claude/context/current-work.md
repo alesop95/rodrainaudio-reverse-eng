@@ -1,10 +1,10 @@
 ---
-generated-from-commit: PENDING-FIRST-COMMIT
+generated-from-commit: 8a04bc2b2c00b21e10a210564581175e7a07f27d
 generated-from-branch: main
 generated-date: 2026-06-11
 covers-paths:
   - rodrain_es9023_trattazione.tex
-last-verified-commit: PENDING-FIRST-COMMIT
+last-verified-commit: 8a04bc2b2c00b21e10a210564581175e7a07f27d
 stato: in corso
 ---
 
@@ -60,5 +60,5 @@ voci ADR-003/004/005 restano "da verificare".
 
 ## Riconciliazione
 
-Ultima verifica: 2026-06-11 al commit PENDING-FIRST-COMMIT (da ancorare con `sync-context` dopo il
-primo commit).
+Ultima verifica: 2026-06-11 al commit 8a04bc2 (ancorato a HEAD con il primo ancoraggio di
+`sync-context`).

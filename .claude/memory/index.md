@@ -8,7 +8,7 @@
 
 ```
 Branch attivo:         main
-Commit di riferimento: PENDING-FIRST-COMMIT
+Commit di riferimento: 8a04bc2b2c00b21e10a210564581175e7a07f27d
 Data snapshot:         2026-06-11
 ```
 
@@ -16,17 +16,17 @@ Data snapshot:         2026-06-11
 
 | Scheda | last-verified | Stato |
 |---|---|---|
-| STACK.md | PENDING-FIRST-COMMIT | popolata (in attesa del primo commit) |
-| design-and-security.md | PENDING-FIRST-COMMIT | stub (non applicabile a progetto-doc) |
-| deployment.md | PENDING-FIRST-COMMIT | stub (build LaTeX/Overleaf) |
-| dev-testing.md | PENDING-FIRST-COMMIT | stub (non applicabile) |
-| current-work.md | PENDING-FIRST-COMMIT | popolata (domande a/b/c) |
-| roadmap.md | PENDING-FIRST-COMMIT | popolata (misure da fare) |
+| STACK.md | 8a04bc2 | aggiornata (popolata) |
+| design-and-security.md | 8a04bc2 | aggiornata (stub, non applicabile a progetto-doc) |
+| deployment.md | 8a04bc2 | aggiornata (stub, build LaTeX/Overleaf) |
+| dev-testing.md | 8a04bc2 | aggiornata (stub, non applicabile) |
+| current-work.md | 8a04bc2 | aggiornata (popolata, domande a/b/c) |
+| roadmap.md | 8a04bc2 | aggiornata (popolata, misure da fare) |
 
 ## Punto di ripresa
 
-Asset riorganizzati in `pictures/` e `references/`; `Notes.txt` spostato nel privato `_notes/`. Le
-immagini usate dal `.tex` ora risolvono. Da fare: committare la riorganizzazione, poi eseguire
-`sync-context` per ancorare tutte le schede a `HEAD` (oggi ancora `PENDING-FIRST-COMMIT`).
-L'indagine tecnica resta aperta sui tre punti in `current-work.md`; la verifica più importante è la
-misura di Z_out (vedi `decisions.md` ADR-005).
+Sistema adottato e schede ancorate al commit 8a04bc2 (primo ancoraggio eseguito): tutte
+`aggiornate`, nessun drift. Gli asset sono organizzati in `pictures/` e `references/` e le immagini
+del `.tex` risolvono. L'indagine tecnica resta aperta sui tre punti in `current-work.md`; la
+prossima azione concreta è la misura di Z_out (vedi `decisions.md` ADR-005), che condiziona i punti
+(a) e (c). Da qui in avanti il drift si gestisce con `sync-context` a ogni passo significativo.

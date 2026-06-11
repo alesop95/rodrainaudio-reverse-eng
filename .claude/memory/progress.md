@@ -5,9 +5,20 @@
 > e commit di riferimento. Qui confluisce anche il log di riconciliazione dei documenti sorgente,
 > con nome del documento e esito, così la data di allineamento sopravvive a un clone.
 
+## 2026-06-11 — Primo ancoraggio delle schede (sync-context)
+
+Commit: 8a04bc2
+File toccati: frontmatter di tutte le schede in `.claude/context/` (`generated-from-commit` e
+`last-verified-commit`), `memory/index.md` (commit di riferimento e tabella di verifica).
+Motivo: primo ancoraggio previsto dal passo 0 di `sync-context`. Sostituito il segnaposto
+`PENDING-FIRST-COMMIT` con l'hash di HEAD (8a04bc2) ora che il repo ha commit. Le sei schede
+risultano `aggiornate`, nessun drift. Nota operativa: la skill `sync-context` non è eseguibile
+direttamente in questo ambiente perché il suo comando bash pre-iniettato usa un ciclo `for` che il
+controllo permessi blocca; l'ancoraggio è stato svolto applicando a mano la logica della skill.
+
 ## 2026-06-11 — Riorganizzazione degli asset in cartelle
 
-Commit: PENDING-FIRST-COMMIT (da ancorare con `sync-context` dopo il commit di questa riorg)
+Commit: 8a04bc2
 File toccati: spostate le immagini in `pictures/`, i segnalibri e i puntatori-URL in `references/`,
 e `Notes.txt` in `_notes/` (livello privato ignorato). Aggiornata `context/STACK.md` (mappa file e
 `covers-paths` -> `pictures/**`, `references/**`).
@@ -18,7 +29,7 @@ repository al prossimo commit perché `_notes/` è ignorato; il suo contenuto te
 
 ## 2026-06-11 — Adozione del sistema di progetto su progetto preesistente
 
-Commit: PENDING-FIRST-COMMIT
+Commit: 4f8a782
 File toccati: import del motore in `.claude/` (`PROJECT-SYSTEM.md`, `rules/`, skill
 `init-project-system`/`sync-context`/`git-sync`/`repo-status`, `templates/`); creazione di
 `.gitignore`, `.claude/settings.json`, `CLAUDE.md`, `CLAUDE.local.md`, `_notes/`, `.claude/memory/`
@@ -38,5 +49,6 @@ Note di stato:
 
 ## Prossimo passo
 
-Dopo il primo commit manuale, eseguire la skill `sync-context` per sostituire ogni
-`PENDING-FIRST-COMMIT` con l'hash di `HEAD` e ancorare il drift al contenuto.
+Schede ancorate: il drift d'ora in poi si gestisce con `sync-context` a ogni passo significativo. La
+prossima azione tecnica concreta è la misura di Z_out dello stadio cuffie (ADR-005), che condiziona
+i punti (a) e (c) dell'indagine.
