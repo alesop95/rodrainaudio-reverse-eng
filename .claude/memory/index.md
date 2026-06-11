@@ -25,10 +25,14 @@ Data snapshot:         2026-06-11
 
 ## Punto di ripresa
 
-Aggiunto l'ambiente LaTeX (TinyTeX user-local, manifesto `tex-packages.txt`, script in `scripts/`,
-skill `latex-build` — vedi ADR-007). Da fare subito: 1) installare l'ambiente con
-`scripts/setup-tex.ps1` (rete, qualche minuto); 2) committare l'ambiente; 3) lanciare `/sync-context`
-per ribumpare i `last-verified-commit` di STACK/dev-testing/deployment a HEAD; 4) promuovere lo
-stesso layout nello standard (`.claude/templates/latex/`) e nel bundle J:. L'indagine tecnica resta
-aperta sui tre punti in `current-work.md`; la prossima azione tecnica concreta è la misura di Z_out
-(`decisions.md` ADR-005), che condiziona i punti (a) e (c).
+Ambiente LaTeX completato e verificato: TinyTeX user-local installato, manifesto `tex-packages.txt`,
+script `scripts/setup-tex.*` e `scripts/build.*`, skill `latex-build`, gate di startup in
+`init-project-system`, sillabazione italiana risolta (`hyphen-italian`). Il trattato compila pulito
+(`scripts/build.ps1` -> `rodrain_es9023_trattazione.pdf`, 20 pagine). Tutto rispecchiato nel bundle
+standard J: (vedi `decisions.md` ADR-007).
+
+PRIMA AZIONE alla ripresa: committare il lavoro non ancora committato (ambiente LaTeX, schede
+aggiornate, skill del motore), poi eseguire `sync-context` per ribumpare a `HEAD` i
+`last-verified-commit` di `STACK`/`dev-testing`/`deployment` (le cui `covers-paths` sono cambiate).
+PROSSIMA AZIONE TECNICA: la misura di Z_out (`decisions.md` ADR-005), che sblocca i punti (a) e (c)
+dell'indagine in `current-work.md`.
