@@ -11,11 +11,11 @@ last-verified-commit: 8a04bc2b2c00b21e10a210564581175e7a07f27d
 
 # Deployment
 
-> In un progetto di documentazione il "deployment" e' la produzione del PDF dalla sorgente LaTeX.
+> In un progetto di documentazione il "deployment" è la produzione del PDF dalla sorgente LaTeX.
 
 ## Livelli
 
-Non c'e' infrastruttura ne' hosting. La sorgente e' `rodrain_es9023_trattazione.tex`; l'artefatto e' il PDF, derivato e non versionato. Il lavoro avviene anche su Overleaf (vedi `references/Progetto su overleaf.url`); in locale la build usa l'ambiente TinyTeX descritto in `dev-testing.md`.
+Non c'è infrastruttura né hosting. La sorgente è `rodrain_es9023_trattazione.tex`; l'artefatto è il PDF, derivato e non versionato. Il lavoro avviene anche su Overleaf (vedi `references/Progetto su overleaf.url`); in locale la build usa l'ambiente TinyTeX descritto in `dev-testing.md`.
 
 ## Comandi
 
@@ -23,4 +23,4 @@ Bootstrap dell'ambiente la prima volta: `powershell -ExecutionPolicy Bypass -Fil
 
 ## Variabili d'ambiente e segreti
 
-Nessuna. Non si committano credenziali; il link Overleaf in `references/` e' un riferimento, non un segreto.
+Nessuna. Non si committano credenziali; il link Overleaf in `references/` è un riferimento, non un segreto.
