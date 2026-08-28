@@ -34,3 +34,9 @@ _notes/.tmp-docx-*/
 *.snm
 *.vrb
 *.pdf
+
+# Artefatti di compilazione di Python: si rigenerano a ogni esecuzione e non
+# appartengono al version control. Sono entrati nel commit del 2026-08-27 perche'
+# questa esclusione mancava, e sono stati rimossi dall'indice nello stesso giorno.
+__pycache__/
+*.pyc
