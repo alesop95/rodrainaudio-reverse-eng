@@ -125,7 +125,7 @@ I subagent sono agenti specializzati lanciati via tool Task, con contesto isolat
 
 ## 10. Hooks: automazioni su eventi [OFFICIAL]
 
-Gli hook sono script eseguiti su eventi (`PreToolUse`, `PostToolUse`, `SessionStart`, `SessionEnd`, `Setup` e altri), configurati nella sezione `hooks` di `settings.json`. Usi tipici: proteggere file sensibili, iniettare contesto a inizio sessione, scansionare i secret prima di un commit, imporre lint e test. La gestione e la diagnosi passano da `/hooks` e `claude --debug`. Regole di sicurezza: quotare le variabili, validare i path, usare path assoluti (la variabile `$CLAUDE_PROJECT_DIR` da' la radice del progetto). Le famiglie di hook utili a questo sistema sono descritte nella sezione 14 di `PROJECT-SYSTEM.md` e implementate pronte all'uso nel pacchetto `hooks-starter` del catalogo, mai attive di default.
+Gli hook sono script eseguiti su eventi (`PreToolUse`, `PostToolUse`, `SessionStart`, `SessionEnd`, `Setup` e altri), configurati nella sezione `hooks` di `settings.json`. Usi tipici: proteggere file sensibili, iniettare contesto a inizio sessione, scansionare i secret prima di un commit, imporre lint e test. La gestione e la diagnosi passano da `/hooks` e `claude --debug`. Regole di sicurezza: quotare le variabili, validare i path, usare path assoluti (la variabile `$CLAUDE_PROJECT_DIR` dà la radice del progetto). Le famiglie di hook utili a questo sistema sono descritte nella sezione 14 di `PROJECT-SYSTEM.md` e implementate pronte all'uso nel pacchetto `hooks-starter` del catalogo, mai attive di default.
 
 ## 11. Verifica del setup
 
